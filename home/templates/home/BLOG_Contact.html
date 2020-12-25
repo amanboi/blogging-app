@@ -1,0 +1,49 @@
+
+
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block title %} Contact us{% endblock title %}
+    {% block contactactive %} active {% endblock contactactive %}
+    {% block body %}
+    <style>
+  body {
+    background-image: url('https://images.squarespace-cdn.com/content/v1/569d4b5afb36b14cb9816729/1453169206422-NSC12UTKE3N9JX44J7Q3/ke17ZwdGBToddI8pDm48kNbtElRT21_JiTRyuwgy1vB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFQbDqQneBP5WJrgBA3-YG-FkoMahGbGTbFnRJQx6apT4g/Silver-Blur-Background-Wallpaper.jpg?format=1000w');
+    background-size: 100% 100%;
+  }
+  </style>
+
+    <div class="container">
+      <h1 style="text-align:center;font-size:70px;" class="text-decoration-underline">Contact i-Coders</h1>
+
+
+    <form class="" action="index.html" method="post">
+
+    <label for="inputname" class="form-label" ><h3 style="color:black">Name</h3></label>
+    <input type="text" id="inputname" class="form-control">
+    <div  class="form-text">
+
+
+      <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><h3 style="color:black">Email address</h3></label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+
+        <label for="inputname" class="form-label"><h3 style="color:black">Phone Number</h3></label>
+        <input type="number" id="inputname" class="form-control">
+        <div  class="form-text">
+
+         <h3 style="color:black">How can we help you</h3>
+          <div class="form-floating">
+  <textarea class="form-control"  id="floatingTextarea2" style="height: 100px" placeholder="Leave a comment here"></textarea>
+  <label for="floatingTextarea2"></label>
+
+
+</div>
+
+
+<button type="submit" class="btn btn-primary m-2">Submit</button>
+        </form>
+        </div>
+{% endblock body%}
+

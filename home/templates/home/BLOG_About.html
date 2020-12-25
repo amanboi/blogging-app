@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About {% endblock title %}
+{% block aboutactive %} active {% endblock aboutactive %}
+{% block body %}
+
+
+<style>
+  body {
+    background-image: url('https://images.squarespace-cdn.com/content/v1/569d4b5afb36b14cb9816729/1453169206422-NSC12UTKE3N9JX44J7Q3/ke17ZwdGBToddI8pDm48kNbtElRT21_JiTRyuwgy1vB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFQbDqQneBP5WJrgBA3-YG-FkoMahGbGTbFnRJQx6apT4g/Silver-Blur-Background-Wallpaper.jpg?format=1000w');
+    background-size: 100% 100%;
+    background-color: white;
+    font-family: webkit-body;
+  }
+</style>
+
+
+<div class="container  px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <p class="display-4"> Our Vision </p>
+
+  <p class="lead">To become the voice of those who are unable to stand for themselves for various reasons and to bring
+    into light the matters that need to be discussed for the welfare of the society.
+    iCoder provides you the platform to express your views and opinions and become audience for others!</p>
+  </div>
+    <div class="container-fluid mx-auto  pt-md-5 pb-md-4 text-center my-4">
+      <p class="display-4"> Founders: </p>
+    <div class="row mb-4">
+      <div class="col-sm">
+        
+        <!-- One of three columns -->
+        <figure class="figure">
+          <img src="{% static 'home/images/Anannya.jpg' %}" class="figure-img img-fluid rounded  border border-dark"  style="width: 200px; height: 300px; " alt="...">
+         <h4> <figcaption class="figure-caption" style="color:rgb(68 74 79);">Anannya Sharma</figcaption></h4>
+          <h5><figcaption class="figure-caption" style="color:rgb(68 74 79);">Frontend Developer</figcaption></h5>
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);"><a target="_blank" style ="color: inherit;" href=""><i  class="fa fa-instagram" aria-hidden="true"></i></a></figcaption></h4>
+         
+        </figure>
+        
+
+
+        <!-- <img  src="{% static 'home/images/Abhijeet.jpg' %}" class="img-fluid rounded border border-dark" style="width: 200px; height: 300px;" alt="...">
+        <h4>Abhijeet Mahavar </h4>
+        <a href="https://instagram.com/abhijeetmahavar?igshid=14ckgxc23vkka">@abhijeetmahavar</a>
+          <h5>Backend Developer</h5> -->
+          
+        
+        
+        
+      </div>
+      <div class="col-sm  mx-auto">
+        <figure class="figure">
+          <img src="{% static 'home/images/Aman.jpg' %}" class="figure-img img-fluid rounded  border border-dark"  style="width: 200px; height: 300px;" alt="...">
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);">Aman Tripathi</figcaption></h5>
+          <h5><figcaption class="figure-caption" style="color:rgb(68 74 79);">Backend Developer</figcaption></h5>
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);"><a target="_blank" style ="color: inherit;" href="https://www.instagram.com/amantripathi007/"><i  class="fa fa-instagram" aria-hidden="true"></i></a></figcaption></h4>
+        </figure>
+        
+        <!-- <img  src="{% static 'home/images/Aman.jpg' %}" class="img-fluid rounded border border-dark" style="width: 200px; height: 300px;" alt="..."> -->
+      </div>
+      <div class="col-sm">
+        <figure class="figure">
+          <img src="{% static 'home/images/Abhijeet.jpg' %}" class="figure-img img-fluid rounded  border border-dark"  style="width: 200px; height: 300px;" alt="...">
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);">Abhijeet Mahavar</figcaption></h4>
+         <h5> <figcaption class="figure-caption" style="color:rgb(68 74 79);">Backend Developer</figcaption></h5>
+         <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);"><a target="_blank" style ="color: inherit;" href="https://instagram.com/abhijeetmahavar?igshid=14ckgxc23vkka"><i  class="fa fa-instagram" aria-hidden="true"></i></a></figcaption></h4>
+        </figure>
+        
+        <!-- <img  src="{% static 'home/images/Anannya.jpg' %}" class="img-fluid rounded border border-dark " style="width: 200px; height: 300px;" alt="..."> -->
+      </div>
+    <!-- </div> -->
+
+
+    <!-- <div class="row"> -->
+      <div class="col-sm my-auto">
+        <figure class="figure">
+          <img src="{% static 'home/images/Neha.jpg' %}" class="figure-img img-fluid rounded  border border-dark"  style="width: 200px; height: 300px;" alt="...">
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);">Neha Chaudhary</figcaption></h4>
+          <h5><figcaption class="figure-caption" style="color:rgb(68 74 79);">Frontend Developer</figcaption></h5>
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);"><a target="_blank" style ="color: inherit;" href=""><i  class="fa fa-instagram" aria-hidden="true"></i></a></figcaption></h4>
+        </figure>
+        
+        <!-- <img  src="{% static 'home/images/Neha.jpg' %}" class="img-fluid rounded border border-dark" style="width: 200px; height: 300px;" alt="..."> -->
+      </div>
+      <div class="col-sm my-auto">
+        <figure class="figure">
+          <img src="{% static 'home/images/Vallari.jpg' %}" class="figure-img img-fluid rounded  border border-dark"  style="width: 200px; height: 300px;" alt="...">
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);">Vallari Garg</figcaption></h4>
+          <h5><figcaption class="figure-caption" style="color:rgb(68 74 79);">Frontend Developer</figcaption></h5>
+          <h4><figcaption class="figure-caption" style="color:rgb(68 74 79);"><a target="_blank" style ="color: inherit;" href="https://www.instagram.com/vallari_garg_12/"><i  class="fa fa-instagram" aria-hidden="true"></i></a></figcaption></h4>
+        </figure>
+       
+      </div>
+      
+    </div>
+
+  </div>
+
+
+  </div>
+
+
+
+
+
+</div>
+
+
+
+{% endblock body %}

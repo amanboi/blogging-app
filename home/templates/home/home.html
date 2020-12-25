@@ -1,0 +1,118 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block body %}
+<style>
+    body{
+        background-color: black;
+
+    }
+</style>
+  <div class="container">
+    <div class="row">
+    <svg viewBox="0 0  1200 200">
+    <symbol id="s-text">
+        <text  text-anchor="middle" x="50%" y="80%" >ICoder Blogs</text>
+    </symbol>
+
+    <g class = "g-ants">
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+    </g>
+</svg>
+    </div>
+
+</div>
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'home/images/blog3.jpg' %}" width="400" height="500" class="d-block w-100" alt="...">
+
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'home/images/laptop.jfif' %}" width="400" height="500" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'home/images/people.jfif' %}" width="400" height="500" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+  
+<!-- <div class="container my-3 ">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome To i-Coder</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+            featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead"> 
+        <a class="btn btn-primary btn-lg" href=" blogging/" role="button">Go to Blog</a>
+        </p>
+    </div>
+</div> -->
+
+<!-- <div class="container">
+    <h2>Popular Blogposts:</h2>
+    <div class="row g-0 border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <h3 class="mb-0">Featured post</h3>
+            <div class="mb-1 text-muted">Nov 12</div>
+            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
+                additional content.</p>
+            <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
+                aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                    dy=".3em">Thumbnail</text>
+            </svg>
+
+        </div>
+    </div>
+</div> -->
+<div class="blog">
+  <div class="area">
+  <h1 id="we" style="text-align:center;color:blue;font-size:90px;">Some  Amazing  Quotes!!</h1></div>
+  <br>
+<h2 style="color:rgb(98, 213, 18)"> → Blogging is just a conversation , not a code!!</h2><br>
+<h2 style="color:rgb(204, 9, 144)"> → Blogging is just writing — writing using a particularly efficient type of publishing technology.</h2><br>
+<h2 style="color:rgb(20, 199, 208)"> → Blogs are whatever we make them. Defining ‘Blog’ is a fool’s errand.</h2><br>
+<h2 style="color:rgb(236, 28, 72)"> → The first thing you need to decide when you build your blog is what you want to accomplish with it, and what it can do if successful.</h2><br>
+<h2 style="color:rgb(196, 194, 187)"> → If you love writing or making music or blogging or any sort of performing art, then do it. Do it with everything you’ve got. Just don’t plan on using it as a shortcut to making a living.</h2>
+<h2 style="color:rgb(96, 233, 25)"> → Blogging is not a business by itself. It is only a promotional platform.</h2><br>
+<h2 style="color:rgb(204, 9, 144)"> → Don’t focus on having a great blog. Focus on producing a blog that’s great for your readers.</h2>
+<br><h2 style="color:rgb(20, 199, 208)"> → Ideas are easy. Implementation is hard!</h2>
+<br><h2 style="color:rgb(236, 28, 72)"> → Blogging is hard because of the grind required to stay interesting and relevant.</h2>
+<br><h2 style="color:rgb(96, 233, 25)"> → Opportunity is missed by most people because it is dressed in overalls and looks like work.</h2>
+<br><br>
+</div>
+
+
+{% endblock body %}

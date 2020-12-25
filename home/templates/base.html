@@ -1,0 +1,211 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="{% static 'home/css/pp.css' %}" rel="stylesheet">
+
+  <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark"  style="background:black;font-family:webkit-body;font-size:20px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">iCoder</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link  {% block homeactive %} {% endblock homeactive %}  " aria-current="page"
+              href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% block aboutactive %} {% endblock aboutactive %}" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% block contactactive %} {% endblock contactactive %}" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% block blogactive %} {% endblock blogactive %}" href="/blogging">Blog</a>
+          </li>
+
+
+
+
+        </ul>
+        <form method="get" action="/search" class="d-flex mx-3">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
+            id="query">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+        <!-- <a href="/admin" role="button" target="_blank" class="btn btn-outline-success d-flex mx-2 me-2">Admin</a> -->
+        {% if user.is_authenticated %}
+        <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Welcome {{request.user}}
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+  </ul>
+</div>
+
+        {% else %}
+        <!-- Button to trigger Login modal -->
+        <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+          Log In
+        </button>
+        <!-- Button to trigger Signup modal -->
+        <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#signupModal">
+          Sign Up
+        </button>
+         {% endif %}
+      </div>
+    </div>
+  </nav>
+  }
+
+
+  <!--Signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalTitle">SignUp Here</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form action='/signup' method='post'>
+
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username should be lowercase and alphanumeric" required>
+            </div>
+            <div class="mb-3">
+              <label for="fname" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="fname" name="fname" required>
+            </div>
+            <div class="mb-3">
+              <label for="lname" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lname" name="lname" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your E-mail" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="pass1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pass1" name="pass1" required>
+              </div>
+              <div class="mb-3">
+                <label for="pass2" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="pass2" name="pass2" required>
+              </div>
+
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalTitle">Login Here</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="loginusername" name="loginusername" required>
+            </div>
+            <div class="mb-3">
+              <label for="pass" class="form-label">Enter Your Password</label>
+              <input type="password" class="form-control" id="loginpassword" name="loginpassword" required>
+            </div>
+             {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+{% block body %} {% endblock body %}
+
+<div class="footer">
+<div class="footer-bottom">
+  <br>
+  <a href="/blogging">ICoder Blogs</a>
+&nbsp;&nbsp;&nbsp;<a href="/#we" >Amazing Quotes</a>
+<br>
+<a href="https://firstsiteguide.com/examples-of-blogs/" target="_blank">Popular Blogs</a>
+&nbsp;&nbsp;&nbsp;<a href="#">Back to Top</a>
+<br><br><br>
+<div class="bottom" style="text-align:center;">
+&copy;Icoder Blogs| Designed by Cookies
+</div>
+</div>
+</div>
+  
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+ 
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

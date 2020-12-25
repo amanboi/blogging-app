@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Blog{% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+
+{% block body %}
+
+  <style>
+body {
+  background-image: url('https://images.squarespace-cdn.com/content/v1/569d4b5afb36b14cb9816729/1453169206422-NSC12UTKE3N9JX44J7Q3/ke17ZwdGBToddI8pDm48kNbtElRT21_JiTRyuwgy1vB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFQbDqQneBP5WJrgBA3-YG-FkoMahGbGTbFnRJQx6apT4g/Silver-Blur-Background-Wallpaper.jpg?format=1000w');
+  background-size: 100% 100%;
+}
+</style>
+
+<div class="container my-3">
+    <h1 style="text-align:center;font-size:70px;" class="text-decoration-underline">Coding Articles By i-Coder</h1>
+    {% for post in allPosts %}
+    <div class="row g-0 border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Article By:{{post.author}}</strong>
+            <h3 class="mb-0">{{post.title}}</h3>
+            <div class="mb-1 text-muted">{{post.datetime}}</div>
+            <p class="card-text mb-auto">{{post.content |truncatechars:500 |linebreaks}}.</p>
+            <div>
+                <a href="/blogging/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock body %}
