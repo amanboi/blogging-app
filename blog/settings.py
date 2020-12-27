@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'blogging.apps.BloggingConfig',
+    'django.contrib.humanize',
     # 'bootstrap_modal_forms',
 ]
 

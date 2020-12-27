@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
+{% load humanize %}
 <style >
   body{
   background-image: url('https://images.squarespace-cdn.com/content/v1/569d4b5afb36b14cb9816729/1453169206422-NSC12UTKE3N9JX44J7Q3/ke17ZwdGBToddI8pDm48kNbtElRT21_JiTRyuwgy1vB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFQbDqQneBP5WJrgBA3-YG-FkoMahGbGTbFnRJQx6apT4g/Silver-Blur-Background-Wallpaper.jpg?format=1000w');
@@ -17,14 +18,53 @@
 
 
     </div>
-
-
-
+    <div class="container">
+      <h3>Comments({{comments.count}})</h3>
+      <div class="my-2">
+      {% if user.is_authenticated %}
+     <form action="/blogging/postComment" method="post">
+        {% csrf_token %}
     
-    <footers>
-
-    <a href="" class=" btn btn-primary m-2" >BACK</a>
-    <a href="" class=" btn btn-primary m-2">NEXT </a>
-    </footers>
- {% endblock body %}
+    
+    
+    
+    
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Post Comment</label>
+          <input type="text" class="form-control" name="comment" placeholder="Enter comment here">
+        </div>
+    
+    
+    
+        <input type="hidden" name="postSno" value="{{post.sno}}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    
+      {% else %}
+      <p>Please Login To Post A Comment</p>
+      {% endif %}
+     
+    
+    
+       </div>
+    
+    
+    
+    
+    
+    
+         {% for comment in comments %}
+         <div class="row my-3">
+        <div class="col-md-1"><img class="rounded mx-auto d-block w-100 p-2 border border-dark" src="/static/home/images/user.png" alt="user" srcset=""></div>
+    
+        <div class="col-md-11"><b>{{comment.user.username}} </b> at <span class="badge bg-secondary"> {{comment.timestamp | naturaltime}}</span badge bg-secondary>
+        <div>{{comment.comment}}</div>
+        </div>
+      </div>
+    
+         {% endfor %}
+      
+      
+    </div>
+    {% endblock body %}
 
