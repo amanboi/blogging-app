@@ -7,7 +7,7 @@
 {% block body %}
 <style>
     body{
-        background-color: black;
+        background-color: beige;
 
     }
 </style>
@@ -113,6 +113,29 @@
 <br><h2 style="color:rgb(96, 233, 25)"> → Opportunity is missed by most people because it is dressed in overalls and looks like work.</h2>
 <br><br>
 </div>
+<div class="container my-3">
+  <h2 style="text-align:center;font-size:70px;" class="text-decoration-underline">Popular Blogposts:</h2>
+  {% for post in topPosts %}
+  <div class="row g-0 border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Article By:{{post.author}}({{post.views}} views)</strong>
+          <h3 class="mb-0"><a class="text-dark" href="/blogging/{{post.slug}}">{{post.title}}</a></h3>
+          <div class="mb-1 text-muted">{{post.datetime}}</div>
+          <p class="card-text mb-auto"><div class="preview">{{post.content |truncatechars:200|safe |linebreaks}}</div></p>
+          <div>
+              <a href="/blogging/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+          </div>
+      </div>
+      <div class="col-auto d-none d-lg-block">
+
+
+      </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
 
 
 {% endblock body %}

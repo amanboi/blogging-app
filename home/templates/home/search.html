@@ -2,13 +2,21 @@
 {% load static %}
 {% block title %} Search Results {% endblock title %}
 {% block blogactive %} active {% endblock blogactive %}
+{% block js %}
+<script>
+let previews = document.getElementsByClassName('preview');
+Array.from(previews).forEach((element)=>{
+    element.innerHTML = element.innerText
+})
+</script>
+{% endblock js %}
 
 {% block body %}
 <link href="searchcss.css" rel="stylesheet">
 
 <div class="container my-3" >
     <h2 style="font-family:webkit-body;font-size:30px;color:rgb(20, 199, 208);">Search Results:</h2>
-    {% if allPosts|length < 1 %}
+    {% if allPosts|length < 1 or none %}
     <p>No search Results</p>
 
   <i style="font-family:webkit-body;"><b> It looks like there aren't many great matches for your search</b></i> {{query}}
@@ -19,7 +27,7 @@
             <strong class="d-inline-block mb-2 text-primary">Article By:{{post.author}}</strong>
             <h3 class="mb-0">{{post.title}}</h3>
             <div class="mb-1 text-muted">{{post.datetime}}</div>
-            <p class="card-text mb-auto">{{post.content |truncatechars:500 |linebreaks}}.</p>
+            <p class="card-text mb-auto"><div class="preview">{{post.content |truncatechars:500 |safe|linebreaks}}</div></p>
             <div>
                 <a href="/blogging/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
             </div>

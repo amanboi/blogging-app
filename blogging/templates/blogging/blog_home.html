@@ -3,6 +3,15 @@
 {% block title %} Blog{% endblock title %}
 {% block blogactive %} active {% endblock blogactive %}
 
+{% block js %}
+<script>
+let previews = document.getElementsByClassName('preview');
+Array.from(previews).forEach((element)=>{
+    element.innerHTML = element.innerText
+})
+</script>
+{% endblock js %}
+
 {% block body %}
 
   <style>
@@ -17,10 +26,10 @@ body {
     {% for post in allPosts %}
     <div class="row g-0 border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">Article By:{{post.author}}</strong>
-            <h3 class="mb-0">{{post.title}}</h3>
+            <strong class="d-inline-block mb-2 text-primary">Article By:{{post.author}}({{post.views}} views)</strong>
+            <h3 class="mb-0"><a class="text-dark" href="/blogging/{{post.slug}}">{{post.title}}</a></h3>
             <div class="mb-1 text-muted">{{post.datetime}}</div>
-            <p class="card-text mb-auto">{{post.content |truncatechars:500 |linebreaks}}.</p>
+            <p class="card-text mb-auto"><div class="preview">{{post.content |truncatechars:200|safe |linebreaks}}</div></p>
             <div>
                 <a href="/blogging/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
             </div>
@@ -31,6 +40,19 @@ body {
         </div>
     </div>
     {% endfor %}
+    <div class="my-2]">
+    {% if prev %}
+    <button class="btn btn-light btn-sm "> <a href="/blogging/?page={{prev}}">&laquo; Previous</a></button>
+    {% else %}
+    <button class="btn btn-light btn-sm "> <a href="#">&laquo; First</a></button>
+    {% endif %}
+    
+    {% if nxt %}
+    <button class="btn btn-light btn-sm float-right "><a href="/blogging/?page={{nxt}}">Next &raquo;</a></button>
+    {% else %}
+    <button class="btn btn-light btn-sm float-right "><a href="#">Last &raquo;</a></button>
+    {% endif %}
+    </div>
 </div>
 
 {% endblock body %}

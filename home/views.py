@@ -6,7 +6,11 @@ from django.contrib.auth import authenticate, login, logout
 from blogging.models import Post
 # Create your views here.
 def home(request):
-    return render(request, 'home/home.html')
+    # Fetch top 3 blog post based on number of views
+    # post = Post.objects.all()
+    topPosts = Post.objects.order_by('-views')[:2]
+    context = {'topPosts': topPosts}
+    return render(request, 'home/home.html', context)
 
 
 def about(request):
